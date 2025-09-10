@@ -28,7 +28,7 @@ plugin_outlet:
   default: "above-main-container"
 featured_tags_categories:
   default: >-
-    [{"id":1,"type":"category","backgroundColor":"#fff", "textColor":"#ff"}]
+    [{"tag":"","category":"","backgroundColor":"#fff", "textColor":"#ff"}]
   json_schema: '{
   "type": "array",
   "format": "table",
@@ -36,32 +36,21 @@ featured_tags_categories:
   "items": {
     "type": "object",
     "properties": {
-      "id": {
+      "tag": {
         "type": "string",
-        "description": "The list title"
-      },
-      "type": {
-        "type": "string",
-        "description": "Choose the type of list",
-        "enum": [
-          "latest",
-          "hot",
-          "top",
-          "new",
-          "unread"
-        ]
-      },
+        "description": "Filter by tag id"
+      }, 
       "category": {
         "type": "string",
         "description": "Filter by category id"
       },
       "backgroundColor": {
         "type": "string",
-        "description": "Filter by tag name"
+        "description": "hex color"
       },
       "textColor": {
         "type": "string",
-        "description": "Set a CSS class name for custom styles"
+        "description": "hex color"
       }
     },
     "additionalProperties": false
