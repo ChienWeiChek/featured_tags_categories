@@ -2,10 +2,6 @@ featured_categories:
   type: list
   list_type: category
   default: ""
-featured_tags:
-  type: list
-  list_type: tag
-  default: ""
 layout:
   type: enum
   default: list
@@ -37,7 +33,7 @@ featured_tags_categories:
     "type": "object",
     "properties": {
       "id": {
-        "type": "integer",
+        "type": "string",
         "description": "category id or tag id"
       },
       "type": {
