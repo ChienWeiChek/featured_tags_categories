@@ -24,6 +24,7 @@ export default class FeaturedCategories extends Component {
   async loadFeaturedItems() {
     try {
       const itemsData = JSON.parse(settings.featured_tags_categories || '[]');
+      console.log("🚀 ~ FeaturedCategories ~ loadFeaturedItems ~ itemsData:", itemsData)
       const items = [];
 
       for (const item of itemsData) {
@@ -34,7 +35,7 @@ export default class FeaturedCategories extends Component {
           entity = Category.findById(Number(item.category));
           type = 'category';
         } else if (item.tag) {
-          entity = Tag.findByName(item.tag);
+          entity = Tag.searchContext(Number(item.tag));
           type = 'tag';
         }
 
@@ -80,11 +81,22 @@ export default class FeaturedCategories extends Component {
                   href={{item.entity.url}}
                   style={{htmlSafe (concat "color: " item.textColor)}}
                 >
+                  {{#if (and (eq item.type "category") item.entity.uploaded_logo.url)}}
+                    <CategoryLogo @category={{item.entity}} />
+                  {{/if}}
                   <h3 class='item-name'>
+                    {{#if (and (eq item.type "category") item.entity.read_restricted)}}
+                      {{dIcon 'lock'}}
+                    {{/if}}
                     {{item.entity.name}}
+                    {{#if (eq item.type "tag")}}
+                      <span class='item-type-tag'>#</span>
+                    {{/if}}
                   </h3>
-                  {{#if (eq item.type "tag")}}
-                    <span class='item-type-tag'>#</span>
+                  {{#if (and (eq item.type "category") item.entity.description_excerpt)}}
+                    <span class='item-description'>{{htmlSafe
+                        item.entity.description_excerpt
+                      }}</span>
                   {{/if}}
                 </a>
               </div>
@@ -119,3 +131,4 @@ export default class FeaturedCategories extends Component {
     }
   }
 }
+

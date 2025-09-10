@@ -24,6 +24,7 @@ export default class FeaturedCategories extends Component {
   async loadFeaturedItems() {
     try {
       const itemsData = JSON.parse(settings.featured_tags_categories || '[]');
+      console.log("🚀 ~ FeaturedCategories ~ loadFeaturedItems ~ itemsData:", itemsData)
       const items = [];
 
       for (const item of itemsData) {
@@ -34,7 +35,7 @@ export default class FeaturedCategories extends Component {
           entity = Category.findById(Number(item.category));
           type = 'category';
         } else if (item.tag) {
-          entity = Tag.findByName(item.tag);
+          entity = Tag.searchContext(Number(item.tag));
           type = 'tag';
         }
 
@@ -130,3 +131,4 @@ export default class FeaturedCategories extends Component {
     }
   }
 }
+
