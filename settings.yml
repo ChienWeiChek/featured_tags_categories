@@ -40,10 +40,6 @@ featured_tags_categories:
         "type": "string",
         "description": "The list title"
       },
-      "length": {
-        "type": "string",
-        "description": "Set the number of topics"
-      },
       "type": {
         "type": "string",
         "description": "Choose the type of list",
@@ -55,28 +51,15 @@ featured_tags_categories:
           "unread"
         ]
       },
-      "solved": {
-        "type": "string",
-        "description": "Filter by solved or unsolved",
-        "enum": [
-          "",
-          "solved",
-          "unsolved"
-        ]
-      },
       "category": {
         "type": "string",
         "description": "Filter by category id"
       },
-      "tag": {
+      "backgroundColor": {
         "type": "string",
         "description": "Filter by tag name"
       },
-      "link": {
-        "type": "string",
-        "description": "Where the list should link to"
-      },
-      "classname": {
+      "textColor": {
         "type": "string",
         "description": "Set a CSS class name for custom styles"
       }
