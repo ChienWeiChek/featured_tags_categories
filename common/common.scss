@@ -1,0 +1,21 @@
+@import "cards";
+@import "list";
+@if $layout == "none" {
+}
+
+// Plugin outlets
+.featured-categories {
+  &.--above-main-container {
+    margin-bottom: 1.5rem;
+  }
+  &.--below-site-header {
+    &__container {
+      padding: 0 1rem;
+    }
+  }
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}

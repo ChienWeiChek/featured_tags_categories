@@ -1,0 +1,8 @@
+en:
+  heading: Featured Categories
+  link: See all
+  theme_metadata:
+    description: Feature select categories
+    settings:
+      show_on: Route on which the component is rendered
+      plugin_outlet: Layout position for the component

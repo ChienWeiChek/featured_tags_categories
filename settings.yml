@@ -1,0 +1,82 @@
+featured_categories:
+  type: list
+  list_type: category
+  default: ""
+featured_tags_categories:
+  json_schema: '{
+  "type": "array",
+  "format": "table",
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "category id or  tag id"
+      },
+      "type": {
+        "type": "string",
+        "description": "category or tag",
+        "enum": [
+          "category",
+          "tag",
+        ]
+      },
+      "backgroundColor": {
+        "type": "string",
+        "description": "Hex color",
+       
+      },
+      "textColor": {
+        "type": "string",
+        "description": "Hex color"
+      },
+    },
+    "additionalProperties": false
+  }
+}'
+featured_tags:
+  type: list
+  list_type: tag
+  default: ""
+layout:
+  type: enum
+  default: list
+  choices:
+    - list
+    - cards
+    - none
+show_on:
+  default: homepage
+  type: enum
+  choices:
+    - everywhere
+    - top-menu
+    - homepage
+    - discovery.custom
+    - discovery.latest
+    - discovery.categories
+    - discovery.top
+plugin_outlet:
+  default: "above-main-container"
+
+featured_tags_categories:
+  json_schema: '{
+    "type": "array",
+    "format": "table",
+    "uniqueItems": true,
+    "items": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["category", "tags"]
+    }
