@@ -1,33 +1,34 @@
 featured_tags_categories:
   default: >-
-    [{"tag":"","category":"","backgroundColor":"#fff", "textColor":"#ff"}]
-  json_schema: '{
-  "type": "array",
-  "format": "table",
-  "uniqueItems": true,
-  "items": {
-    "type": "object",
-    "properties": {
-      "tag": {
-        "type": "string",
-        "description": "Filter by tag id"
-      }, 
-      "category": {
-        "type": "string",
-        "description": "Filter by category id"
-      },
-      "backgroundColor": {
-        "type": "string",
-        "description": "hex color"
-      },
-      "textColor": {
-        "type": "string",
-        "description": "hex color"
+    [{"category":"1","backgroundColor":"#e6f7ff","textColor":"#005580"},{"tag":"discourse","backgroundColor":"#fff0e6","textColor":"#803300"}]
+  json_schema: |
+    {
+      "type": "array",
+      "format": "table",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "Filter by tag id"
+          }, 
+          "category": {
+            "type": "string",
+            "description": "Filter by category id"
+          },
+          "backgroundColor": {
+            "type": "string",
+            "description": "hex color"
+          },
+          "textColor": {
+            "type": "string",
+            "description": "hex color"
+          }
+        },
+        "additionalProperties": false
       }
-    },
-    "additionalProperties": false
-  }
-}'
+    }
 
 show_on:
   default: homepage

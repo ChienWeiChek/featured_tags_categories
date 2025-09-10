@@ -5,13 +5,13 @@
       flex-direction: row;
       gap: 1rem;
     }
-    &__category-container {
+    &__item-container {
       flex-grow: 1;
       border: 1px solid var(--primary-low);
       border-radius: var(--d-border-radius);
       padding: 1rem;
     }
-    &__category-link {
+    &__item-link {
       color: var(--primary) !important;
       display: flex;
       flex-direction: column;
@@ -20,12 +20,19 @@
         margin: 0 0 1rem 0;
         float: unset;
       }
-      .category-name {
+      .item-name {
         font-size: 1rem;
         font-size: var(--font-up-1);
         text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
-      .category-description {
+      .item-type-tag {
+        font-size: 0.8rem;
+        opacity: 0.7;
+      }
+      .item-description {
         display: none;
       }
     }

@@ -14,11 +14,47 @@ import i18n from 'discourse-common/helpers/i18n';
 export default class FeaturedCategories extends Component {
   @service router;
   @service siteSettings;
-  @tracked featuredCategories = settings.featured_categories
-    .split('|')
-    .map((id) => Category.findById(Number(id)));
+  @tracked featuredItems = [];
 
-  
+  constructor() {
+    super(...arguments);
+    this.loadFeaturedItems();
+  }
+
+  async loadFeaturedItems() {
+    try {
+      const itemsData = JSON.parse(settings.featured_tags_categories || '[]');
+      const items = [];
+
+      for (const item of itemsData) {
+        let entity = null;
+        let type = null;
+        
+        if (item.category) {
+          entity = Category.findById(Number(item.category));
+          type = 'category';
+        } else if (item.tag) {
+          entity = Tag.findByName(item.tag);
+          type = 'tag';
+        }
+
+        if (entity) {
+          items.push({
+            entity,
+            type,
+            backgroundColor: item.backgroundColor || '#000000',
+            textColor: item.textColor || '#000000'
+          });
+        }
+      }
+
+      this.featuredItems = items;
+    } catch (error) {
+      console.error('Error parsing featured_tags_categories:', error);
+      this.featuredItems = [];
+    }
+  }
+
   <template>
     {{#if this.showOnRoute}}
       <div class='featured-categories {{concat "--" settings.plugin_outlet}}'>
@@ -34,24 +70,22 @@ export default class FeaturedCategories extends Component {
             </LinkTo>
           </div>
           <div class='featured-categories__list-container'>
-            {{#each this.featuredCategories as |category|}}
-              <div class='featured-categories__category-container'>
+            {{#each this.featuredItems as |item|}}
+              <div 
+                class='featured-categories__item-container'
+                style={{htmlSafe (concat "background-color: " item.backgroundColor "; color: " item.textColor)}}
+              >
                 <a
-                  class='featured-categories__category-link'
-                  href={{category.url}}
+                  class='featured-categories__item-link'
+                  href={{item.entity.url}}
+                  style={{htmlSafe (concat "color: " item.textColor)}}
                 >
-                  {{#if category.uploaded_logo.url}}
-                    <CategoryLogo @category={{category}} />
-                  {{/if}}
-                  <h3 class='category-name'>
-                    {{#if category.read_restricted}}
-                      {{dIcon 'lock'}}
-                    {{/if}}
-                    {{category.name}}
+                  <h3 class='item-name'>
+                    {{item.entity.name}}
                   </h3>
-                  <span class='category-description'>{{htmlSafe
-                      category.description_excerpt
-                    }}</span>
+                  {{#if (eq item.type "tag")}}
+                    <span class='item-type-tag'>#</span>
+                  {{/if}}
                 </a>
               </div>
             {{/each}}
