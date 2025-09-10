@@ -36,7 +36,7 @@ featured_tags_categories:
   "items": {
     "type": "object",
     "properties": {
-      "title": {
+      "id": {
         "type": "string",
         "description": "The list title"
       },
@@ -44,41 +44,21 @@ featured_tags_categories:
         "type": "string",
         "description": "Set the number of topics"
       },
-      "filter": {
+      "type": {
         "type": "string",
         "description": "Choose the type of list",
         "enum": [
-          "latest",
-          "hot",
-          "top",
-          "new",
-          "unread"
+          "category",
+          "tag",
         ]
       },
-      "solved": {
+      "backgroundColor": {
         "type": "string",
         "description": "Filter by solved or unsolved",
-        "enum": [
-          "",
-          "solved",
-          "unsolved"
-        ]
       },
-      "category": {
+      "textColor": {
         "type": "string",
         "description": "Filter by category id"
-      },
-      "tag": {
-        "type": "string",
-        "description": "Filter by tag name"
-      },
-      "link": {
-        "type": "string",
-        "description": "Where the list should link to"
-      },
-      "classname": {
-        "type": "string",
-        "description": "Set a CSS class name for custom styles"
       }
     },
     "additionalProperties": false
