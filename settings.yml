@@ -3,6 +3,8 @@ featured_categories:
   list_type: category
   default: ""
 featured_tags_categories:
+  default: >-
+    [{"id":1,"type":"category","backgroundColor":"#fff", "textColor":"#ff"}]
   json_schema: '{
   "type": "array",
   "format": "table",
@@ -11,8 +13,8 @@ featured_tags_categories:
     "type": "object",
     "properties": {
       "id": {
-        "type": "string",
-        "description": "category id or  tag id"
+        "type": "integer",
+        "description": "category id or tag id"
       },
       "type": {
         "type": "string",
