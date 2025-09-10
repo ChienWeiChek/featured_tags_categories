@@ -44,7 +44,7 @@ featured_tags_categories:
         "type": "string",
         "description": "Set the number of topics"
       },
-      "type": {
+      "idType": {
         "type": "string",
         "description": "Choose the type of list",
         "enum": [
@@ -55,10 +55,27 @@ featured_tags_categories:
       "backgroundColor": {
         "type": "string",
         "description": "Filter by solved or unsolved",
+        "enum": [
+          "",
+          "solved",
+          "unsolved"
+        ]
       },
       "textColor": {
         "type": "string",
         "description": "Filter by category id"
+      },
+      "tag": {
+        "type": "string",
+        "description": "Filter by tag name"
+      },
+      "link": {
+        "type": "string",
+        "description": "Where the list should link to"
+      },
+      "classname": {
+        "type": "string",
+        "description": "Set a CSS class name for custom styles"
       }
     },
     "additionalProperties": false
