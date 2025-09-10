@@ -2,6 +2,10 @@ featured_categories:
   type: list
   list_type: category
   default: ""
+featured_tags:
+  type: list
+  list_type: tag
+  default: ""
 layout:
   type: enum
   default: list
@@ -32,26 +36,50 @@ featured_tags_categories:
   "items": {
     "type": "object",
     "properties": {
-      "id": {
+      "title": {
         "type": "string",
-        "description": "category id or tag id"
+        "description": "The list title"
       },
-      "type": {
+      "length": {
         "type": "string",
-        "description": "category or tag",
+        "description": "Set the number of topics"
+      },
+      "filter": {
+        "type": "string",
+        "description": "Choose the type of list",
         "enum": [
-          "category",
-          "tag",
+          "latest",
+          "hot",
+          "top",
+          "new",
+          "unread"
         ]
       },
-      "backgroundColor": {
+      "solved": {
         "type": "string",
-        "description": "Hex color",
+        "description": "Filter by solved or unsolved",
+        "enum": [
+          "",
+          "solved",
+          "unsolved"
+        ]
       },
-      "textColor": {
+      "category": {
         "type": "string",
-        "description": "Hex color"
+        "description": "Filter by category id"
       },
+      "tag": {
+        "type": "string",
+        "description": "Filter by tag name"
+      },
+      "link": {
+        "type": "string",
+        "description": "Where the list should link to"
+      },
+      "classname": {
+        "type": "string",
+        "description": "Set a CSS class name for custom styles"
+      }
     },
     "additionalProperties": false
   }
