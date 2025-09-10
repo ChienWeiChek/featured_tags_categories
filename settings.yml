@@ -25,7 +25,6 @@ featured_tags_categories:
       "backgroundColor": {
         "type": "string",
         "description": "Hex color",
-       
       },
       "textColor": {
         "type": "string",
@@ -59,24 +58,3 @@ show_on:
     - discovery.top
 plugin_outlet:
   default: "above-main-container"
-
-featured_tags_categories:
-  json_schema: '{
-    "type": "array",
-    "format": "table",
-    "uniqueItems": true,
-    "items": {
-      "type": "object",
-      "properties": {
-        "category": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": ["category", "tags"]
-    }
