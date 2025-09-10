@@ -44,15 +44,18 @@ featured_tags_categories:
         "type": "string",
         "description": "Set the number of topics"
       },
-      "idType": {
+      "type": {
         "type": "string",
         "description": "Choose the type of list",
         "enum": [
-          "category",
-          "tag",
+          "latest",
+          "hot",
+          "top",
+          "new",
+          "unread"
         ]
       },
-      "backgroundColor": {
+      "solved": {
         "type": "string",
         "description": "Filter by solved or unsolved",
         "enum": [
@@ -61,7 +64,7 @@ featured_tags_categories:
           "unsolved"
         ]
       },
-      "textColor": {
+      "category": {
         "type": "string",
         "description": "Filter by category id"
       },
