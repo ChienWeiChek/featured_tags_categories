@@ -1,31 +1,3 @@
-featured_categories:
-  type: list
-  list_type: category
-  default: ""
-featured_tags:
-  type: list
-  list_type: tag
-  default: ""
-layout:
-  type: enum
-  default: list
-  choices:
-    - list
-    - cards
-    - none
-show_on:
-  default: homepage
-  type: enum
-  choices:
-    - everywhere
-    - top-menu
-    - homepage
-    - discovery.custom
-    - discovery.latest
-    - discovery.categories
-    - discovery.top
-plugin_outlet:
-  default: "above-main-container"
 featured_tags_categories:
   default: >-
     [{"tag":"","category":"","backgroundColor":"#fff", "textColor":"#ff"}]
@@ -56,3 +28,17 @@ featured_tags_categories:
     "additionalProperties": false
   }
 }'
+
+show_on:
+  default: homepage
+  type: enum
+  choices:
+    - everywhere
+    - top-menu
+    - homepage
+    - discovery.custom
+    - discovery.latest
+    - discovery.categories
+    - discovery.top
+plugin_outlet:
+  default: "above-main-container"
