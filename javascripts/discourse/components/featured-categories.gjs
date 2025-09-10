@@ -59,7 +59,6 @@ export default class FeaturedCategories extends Component {
   }
 
   <template>
-    <p>jensen</p>
     {{#if this.showOnRoute}}
       <div class='featured-categories-tags {{concat "--" settings.plugin_outlet}}'>
         <div class='featured-categories-tags__container'>
