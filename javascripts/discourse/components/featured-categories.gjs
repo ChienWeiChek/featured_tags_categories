@@ -76,14 +76,16 @@ export default class FeaturedCategories extends Component {
             {{#each this.featuredItems as |item|}}
               <div 
                 class='featured-categories-tags__item-container'
-                style={{htmlSafe (concat "background-color: " item.backgroundColor "; color: " item.textColor)}}
+                style={{htmlSafe (concat "background-color: " item.backgroundColor)}}
               >
                 <a
                   class='featured-categories-tags__item-link'
                   href={{item.entity.url}}
-                  style={{htmlSafe (concat "color: " item.textColor)}}
                 >
-                  <h3 class='item-name'>
+                  <h3 
+                    class='item-name' 
+                    style={{htmlSafe (concat "color: " item.textColor)}}
+                  >
                     {{item.entity.name}}
                   </h3>
                 </a>
