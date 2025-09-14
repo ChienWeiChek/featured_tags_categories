@@ -72,7 +72,8 @@ export default class FeaturedCategories extends Component {
                 }}</span>
             </LinkTo>
           </div>
-          <div class='featured-categories-tags__list-container'>
+          <div class='featured-categories-tags__list-container' 
+            style={{htmlSafe (concat "--column-number:" settings.column_number;)}}>
             {{#each this.featuredItems as |item|}}
               <div 
                 class='featured-categories-tags__item-container'

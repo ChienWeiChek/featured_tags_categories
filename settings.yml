@@ -29,7 +29,9 @@ featured_tags_categories:
         "additionalProperties": false
       }
     }
-
+column_number:
+  default: 4
+  type: integer
 show_on:
   default: homepage
   type: enum
