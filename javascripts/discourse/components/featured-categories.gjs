@@ -66,11 +66,11 @@ export default class FeaturedCategories extends Component {
             <h2 class='featured-categories-tags__title'>{{i18n
                 (themePrefix 'heading')
               }}</h2>
-            <LinkTo @route='discovery.categories'>
+            {{!-- <LinkTo @route='discovery.categories'>
               <span class='featured-categories-tags__link'>{{i18n
                   (themePrefix 'link')
                 }}</span>
-            </LinkTo>
+            </LinkTo> --}}
           </div>
           <div class='featured-categories-tags__list-container' 
             style={{htmlSafe (concat "--column-number: " settings.column_number)}}>
